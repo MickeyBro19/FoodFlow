@@ -27,7 +27,7 @@ public class Restaurant {
     private String city;
 
     @Column(nullable = false)
-    private int rating;
+    private double rating;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
