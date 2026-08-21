@@ -29,5 +29,6 @@ public class Restaurant {
     private int rating;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

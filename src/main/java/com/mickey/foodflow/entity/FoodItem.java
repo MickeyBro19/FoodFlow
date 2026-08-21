@@ -26,6 +26,7 @@ public class FoodItem {
     private BigDecimal price;   //double can cause precision errors and money shouldn't be of floating-point
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Availability availability;
 
     @ManyToOne(fetch = FetchType.LAZY)  //fetch type lazy as it doesn't need to fetched at load, improving efficiency and speed
