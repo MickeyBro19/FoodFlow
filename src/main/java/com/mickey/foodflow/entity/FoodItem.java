@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "food_items")
+@Builder
 public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
