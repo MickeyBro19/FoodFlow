@@ -40,7 +40,7 @@ public class RestaurantServiceImpl implements RestaurantService{
                 .address(restaurantRequest.getAddress())
                 .city(restaurantRequest.getCity())
                 .rating(0.0)
-                .status(Status.ACTIVE)
+                .status(restaurantRequest.getStatus()!=null?restaurantRequest.getStatus():Status.ACTIVE)
                 .build();
         Restaurant saved=restaurantRepository.save(restaurant);
         return mapToResponse(saved);
@@ -68,6 +68,7 @@ public class RestaurantServiceImpl implements RestaurantService{
         found.setName(restaurantRequest.getName());
         found.setDescription(restaurantRequest.getDescription());
         found.setAddress(restaurantRequest.getAddress());
+        found.setStatus(restaurantRequest.getStatus()!=null?restaurantRequest.getStatus():Status.ACTIVE);
         found.setCity(restaurantRequest.getCity());
         Restaurant updated =restaurantRepository.save(found);
         return mapToResponse(updated);

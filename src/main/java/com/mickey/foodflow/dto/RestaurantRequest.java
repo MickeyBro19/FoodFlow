@@ -1,5 +1,6 @@
 package com.mickey.foodflow.dto;
 
+import com.mickey.foodflow.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -22,6 +23,8 @@ public class RestaurantRequest {
 
     @NotBlank(message = "City can't be empty")
     private String city;
+
+    private Status status;
 
 
 }
