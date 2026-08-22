@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -35,6 +35,6 @@ public class FoodItem {
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_id", nullable = false)   //multiple food items can belong to one restaurant
+    @JoinColumn(name = "restaurant_id", nullable = false)   //multiple food items can beLong to one restaurant
     private Restaurant restaurant;
 }

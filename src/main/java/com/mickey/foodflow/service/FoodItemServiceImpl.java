@@ -49,8 +49,15 @@ public class FoodItemServiceImpl implements FoodItemService {
                 .category(category)
                 .restaurant(restaurant)
                 .build();
-        FoodItem saveFood=foodItemRepository.save(foodItem);
-        return mapToResponse(saveFood);
+        FoodItem saved=foodItemRepository.save(foodItem);
+        FoodItem result =
+                foodItemRepository.findByIdWithDetails(saved.getId())
+                        .orElseThrow(() ->
+                                new ResourceNotFoundException(
+                                        "Food item not found after creation"
+                                )
+                        );
+        return mapToResponse(result);
     }
 
     @Override
